@@ -6,8 +6,8 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 {
 	struct FolderPicker : FolderPickerT<FolderPicker>
 	{
-		FolderPicker(winrt::Microsoft::UI::WindowId const& windowId);
-
+		FolderPicker(uint64_t hwnd);
+		void InitializeWindow(uint64_t hwnd);
 		winrt::Microsoft::Storage::Pickers::PickerViewMode ViewMode();
 		void ViewMode(winrt::Microsoft::Storage::Pickers::PickerViewMode const& value);
 
@@ -25,7 +25,7 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 		winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Storage::StorageFolder> PickSingleFolderAsync();
 
 	private:
-		winrt::Microsoft::UI::WindowId m_windowId{};
+		HWND m_hwnd{};
 
 		PickerViewMode m_viewMode{ PickerViewMode::List };
 		hstring m_settingsIdentifier{};

@@ -9,11 +9,13 @@
 
 namespace winrt::Microsoft::Storage::Pickers::implementation
 {
-    FileOpenPicker::FileOpenPicker(winrt::Microsoft::UI::WindowId const& windowId)
-        : m_windowId(windowId)
+    FileOpenPicker::FileOpenPicker(uint64_t hwnd)
+        : m_hwnd(reinterpret_cast<HWND>(hwnd))
     {
     }
+    void FileOpenPicker::InitializeWindow(uint64_t hwnd) {
 
+    }
     winrt::Microsoft::Storage::Pickers::PickerViewMode FileOpenPicker::ViewMode()
     {
         return m_viewMode;
@@ -53,7 +55,7 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 
     void FileOpenPicker::CaptureParameters(PickerCommon::PickerParameters& parameters)
     {
-        parameters.HWnd = winrt::Microsoft::UI::GetWindowFromWindowId(m_windowId);
+        parameters.HWnd = m_hwnd;
         parameters.CommitButtonText = m_commitButtonText;
         parameters.SettingsIdentifierId = m_settingsIdentifier;
         parameters.PickerLocationId = m_suggestedStartLocation;

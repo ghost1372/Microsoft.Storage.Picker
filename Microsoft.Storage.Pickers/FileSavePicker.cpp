@@ -16,9 +16,12 @@
 namespace winrt::Microsoft::Storage::Pickers::implementation
 {
 
-    FileSavePicker::FileSavePicker(winrt::Microsoft::UI::WindowId const& windowId)
-        : m_windowId(windowId)
+    FileSavePicker::FileSavePicker(uint64_t hwnd)
+        : m_hwnd(reinterpret_cast<HWND>(hwnd))
     {
+    }
+    void FileSavePicker::InitializeWindow(uint64_t hwnd) {
+
     }
     hstring FileSavePicker::SettingsIdentifier()
     {
@@ -76,7 +79,7 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 
     void FileSavePicker::CaptureParameters(PickerCommon::PickerParameters& parameters)
     {
-        parameters.HWnd = winrt::Microsoft::UI::GetWindowFromWindowId(m_windowId);
+        parameters.HWnd = m_hwnd;
         parameters.CommitButtonText = m_commitButtonText;
         parameters.SettingsIdentifierId = m_settingsIdentifier;
         parameters.PickerLocationId = m_suggestedStartLocation;
