@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <BuildOutDir>$([MSBuild]::NormalizeDirectory('$(SolutionDir)', '_build', '$(Platform)', '$(Configuration)'))</BuildOutDir>
+    <OutDir>$([MSBuild]::NormalizeDirectory('$(BuildOutDir)', '$(MSBuildProjectName)', 'bin'))</OutDir>
+    <IntDir>$([MSBuild]::NormalizeDirectory('$(BuildOutDir)', '$(MSBuildProjectName)', 'obj'))</IntDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CsWinRTIncludes>Microsoft.Windows.Storage.Pickers</CsWinRTIncludes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Platforms>x64</Platforms>
+    <CsWinRTGeneratedFilesDir>$(OutDir)</CsWinRTGeneratedFilesDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NuspecFile>Microsoft.Storage.Pickers.nuspec</NuspecFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.vcxproj" />
+  </ItemGroup>
+
+</Project>

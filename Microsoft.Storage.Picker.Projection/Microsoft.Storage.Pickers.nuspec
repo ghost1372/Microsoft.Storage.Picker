@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Storage.Pickers</id>
+    <version>1.0.0</version>
+    <authors>Mahdi Hosseini</authors>
+    <description>
+		This NuGet package provides access to the Microsoft.Storage.Picker API from the Microsoft WindowsAppSdk. 
+		The API is currently in prototype stage and allows you to integrate a powerful and customizable file picker into your Windows applications.
+		It supports features like elevated apps, selecting multiple files, setting default file names, specifying file extensions, and defining default locations for file selection.
+	</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.22621.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\_build\x64\Release\Microsoft.Storage.Picker.Projection\bin\Microsoft.Storage.Picker.Projection.dll" target="lib\net6.0-windows10.0.22621.0\Microsoft.Storage.Picker.Projection.dll" />
+    <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.winmd" target="lib\netcoreapp3.0\Microsoft.Storage.Pickers.winmd" />
+    <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.dll" target="runtimes\win10-x64\native\Microsoft.Storage.Pickers.dll" />
+    <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.dll" target="runtimes\win-x64\native\Microsoft.Storage.Pickers.dll" />
+  </files>
+</package>
