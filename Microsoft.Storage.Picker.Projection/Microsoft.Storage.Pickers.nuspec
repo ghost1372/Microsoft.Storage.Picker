@@ -15,8 +15,10 @@
   </metadata>
   <files>
     <file src="..\_build\x64\Release\Microsoft.Storage.Picker.Projection\bin\Microsoft.Storage.Picker.Projection.dll" target="lib\net6.0-windows10.0.22621.0\Microsoft.Storage.Picker.Projection.dll" />
-    <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.winmd" target="lib\netcoreapp3.0\Microsoft.Storage.Pickers.winmd" />
-    <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.dll" target="runtimes\win10-x64\native\Microsoft.Storage.Pickers.dll" />
+    <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.winmd" target="lib\net6.0-windows10.0.22621.0\Microsoft.Storage.Pickers.winmd" />
+	<file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.winmd" target="lib\uap10.0\Microsoft.Storage.Pickers.winmd" />
+
+	<file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.dll" target="runtimes\win10-x64\native\Microsoft.Storage.Pickers.dll" />
     <file src="..\x64\Release\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.dll" target="runtimes\win-x64\native\Microsoft.Storage.Pickers.dll" />
   </files>
 </package>
