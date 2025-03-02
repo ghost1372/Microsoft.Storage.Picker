@@ -33,6 +33,6 @@ public sealed partial class MainWindow : Window
     {
 
         //        myButton.Content = "Clicked";
-       // Microsoft.Storage.Pickers.FileOpenPicker fileOpenPicker = new Microsoft.Storage.Pickers.FileOpenPicker();
+        Microsoft.Storage.Pickers.FileOpenPicker fileOpenPicker = new Microsoft.Storage.Pickers.FileOpenPicker(AppWindow.Id);
     }
 }
