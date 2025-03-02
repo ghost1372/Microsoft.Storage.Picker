@@ -6,8 +6,8 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 {
     struct FileOpenPicker : FileOpenPickerT<FileOpenPicker>
     {
-        FileOpenPicker(uint64_t hwnd);
-        void InitializeWindow(uint64_t hwnd);
+        FileOpenPicker(winrt::Microsoft::UI::WindowId const& windowId);
+
         winrt::Microsoft::Storage::Pickers::PickerViewMode ViewMode();
         void ViewMode(winrt::Microsoft::Storage::Pickers::PickerViewMode const& value);
 
@@ -26,7 +26,7 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
         winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Storage::StorageFile>> PickMultipleFilesAsync();
 
     private:
-        HWND m_hwnd{};
+        winrt::Microsoft::UI::WindowId m_windowId{};
         PickerViewMode m_viewMode{ PickerViewMode::List };
         winrt::hstring m_settingsIdentifier{};
         PickerLocationId m_suggestedStartLocation{ PickerLocationId::Unspecified };

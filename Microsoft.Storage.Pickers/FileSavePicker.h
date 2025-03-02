@@ -8,8 +8,8 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 
 	struct FileSavePicker : FileSavePickerT<FileSavePicker>
 	{
-		FileSavePicker(uint64_t hwnd);
-		void InitializeWindow(uint64_t hwnd);
+		FileSavePicker(winrt::Microsoft::UI::WindowId const& windowId);
+
 		hstring SettingsIdentifier();
 		void SettingsIdentifier(hstring const& value);
 
@@ -33,7 +33,7 @@ namespace winrt::Microsoft::Storage::Pickers::implementation
 		winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Storage::StorageFile> PickSaveFileAsync();
 
 	private:
-		HWND m_hwnd{};
+		winrt::Microsoft::UI::WindowId m_windowId{};
 		hstring m_settingsIdentifier{};
 		PickerLocationId m_suggestedStartLocation{ PickerLocationId::Unspecified };
 		hstring m_commitButtonText{};

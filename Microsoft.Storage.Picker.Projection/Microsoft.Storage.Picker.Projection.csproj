@@ -1,46 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
-  <PropertyGroup>
-    <BuildOutDir>$([MSBuild]::NormalizeDirectory('$(SolutionDir)', '_build', '$(Platform)', '$(Configuration)'))</BuildOutDir>
-    <OutDir>$([MSBuild]::NormalizeDirectory('$(BuildOutDir)', '$(MSBuildProjectName)', 'bin'))</OutDir>
-    <IntDir>$([MSBuild]::NormalizeDirectory('$(BuildOutDir)', '$(MSBuildProjectName)', 'obj'))</IntDir>
-  </PropertyGroup>
-	
-  <PropertyGroup>
-    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	<Platforms>x64</Platforms>
-  </PropertyGroup>
-  
-  <PropertyGroup>
-	<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
-	<IsTrimmable>true</IsTrimmable>
-  </PropertyGroup>
-	
-  <PropertyGroup>
-	<NuspecFile>Microsoft.Storage.Pickers.nuspec</NuspecFile>
-	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-	<DebugType>pdbonly</DebugType>
-	<DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-	
-  <PropertyGroup>
-	<CsWinRTGeneratedFilesDir>$(OutDir)</CsWinRTGeneratedFilesDir>
-	<CsWinRTIncludes>Microsoft.Windows.Storage.Pickers</CsWinRTIncludes>
-	<SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
-  </PropertyGroup>
-  
-  <ItemGroup>
-	<CsWinRTInputs Include="$(OutDir)/**/*.winmd" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<CSWinRTIncludes>Microsoft.Storage.Pickers</CSWinRTIncludes>
+		<CsWinRTGeneratedFilesDir>$(OutDir)</CsWinRTGeneratedFilesDir>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- Workaround for MSB3271 error on processor architecture mismatch -->
+		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
+	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Storage.Pickers\Microsoft.Storage.Pickers.vcxproj" />

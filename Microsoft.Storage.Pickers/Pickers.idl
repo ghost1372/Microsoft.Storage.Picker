@@ -24,11 +24,8 @@ namespace Microsoft.Storage.Pickers
 	[default_interface]
 	runtimeclass FileOpenPicker
 	{
-		FileOpenPicker(UInt64 hwnd);
-		
-	void InitializeWindow(
-		UInt64 hwnd
-	);
+		FileOpenPicker(Microsoft.UI.WindowId windowId);
+
 		Microsoft.Storage.Pickers.PickerViewMode ViewMode;
 		String SettingsIdentifier;
 		Microsoft.Storage.Pickers.PickerLocationId SuggestedStartLocation;
@@ -40,9 +37,9 @@ namespace Microsoft.Storage.Pickers
 	}
 
 	[default_interface]
-    runtimeclass FileSavePicker
+	runtimeclass FileSavePicker
 	{
-		FileSavePicker(UInt64 hwnd);
+		FileSavePicker(Microsoft.UI.WindowId windowId);
 
 		String SettingsIdentifier;
 		Microsoft.Storage.Pickers.PickerLocationId SuggestedStartLocation;
@@ -58,7 +55,7 @@ namespace Microsoft.Storage.Pickers
 	[default_interface]
 	runtimeclass FolderPicker
 	{
-		FolderPicker(UInt64 hwnd);
+		FolderPicker(Microsoft.UI.WindowId windowId);
 
 		Microsoft.Storage.Pickers.PickerViewMode ViewMode;
 		String SettingsIdentifier;
