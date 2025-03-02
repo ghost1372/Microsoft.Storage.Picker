@@ -10,8 +10,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WinRT.Interop;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,9 +29,13 @@ public sealed partial class MainWindow : Window
         this.InitializeComponent();
     }
 
-    private void myButton_Click(object sender, RoutedEventArgs e)
+    private async Task myButton_Click(object sender, RoutedEventArgs e)
     {
-        myButton.Content = "Clicked";
         
+        myButton.Content = "Clicked";
+        Microsoft.Storage.Pickers.FolderPicker fileOpenPicker = new Microsoft.Storage.Pickers.FolderPicker((ulong)WindowNative.GetWindowHandle(this));
+
+        await fileOpenPicker.PickSingleFolderAsync();
+
     }
 }
