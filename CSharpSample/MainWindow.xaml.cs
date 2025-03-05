@@ -32,6 +32,7 @@ public sealed partial class MainWindow : Window
     private async void myButton_Click(object sender, RoutedEventArgs e)
     {
         Microsoft.Storage.Pickers.FileOpenPicker fileOpenPicker = new Microsoft.Storage.Pickers.FileOpenPicker(AppWindow.Id);
+        fileOpenPicker.FileTypeFilter.Add(".txt");
         await fileOpenPicker.PickSingleFileAsync();
     }
 }
