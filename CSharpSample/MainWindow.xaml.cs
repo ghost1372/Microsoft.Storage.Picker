@@ -29,10 +29,9 @@ public sealed partial class MainWindow : Window
         this.InitializeComponent();
     }
 
-    private async Task myButton_Click(object sender, RoutedEventArgs e)
+    private async void myButton_Click(object sender, RoutedEventArgs e)
     {
-
-        //        myButton.Content = "Clicked";
         Microsoft.Storage.Pickers.FileOpenPicker fileOpenPicker = new Microsoft.Storage.Pickers.FileOpenPicker(AppWindow.Id);
+        await fileOpenPicker.PickSingleFileAsync();
     }
 }

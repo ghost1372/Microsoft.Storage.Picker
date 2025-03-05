@@ -36,12 +36,14 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Storage.Picker.Projection\Microsoft.Storage.Picker.Projection.csproj" />
   </ItemGroup>
+  
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
